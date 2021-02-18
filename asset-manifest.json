@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/front_integro/static/css/main.7fd708be.chunk.css",
+    "main.js": "/front_integro/static/js/main.d1b53f75.chunk.js",
+    "main.js.map": "/front_integro/static/js/main.d1b53f75.chunk.js.map",
+    "runtime-main.js": "/front_integro/static/js/runtime-main.72bc32b8.js",
+    "runtime-main.js.map": "/front_integro/static/js/runtime-main.72bc32b8.js.map",
+    "static/js/2.67d81b56.chunk.js": "/front_integro/static/js/2.67d81b56.chunk.js",
+    "static/js/2.67d81b56.chunk.js.map": "/front_integro/static/js/2.67d81b56.chunk.js.map",
+    "static/js/3.239c8b6b.chunk.js": "/front_integro/static/js/3.239c8b6b.chunk.js",
+    "static/js/3.239c8b6b.chunk.js.map": "/front_integro/static/js/3.239c8b6b.chunk.js.map",
+    "index.html": "/front_integro/index.html",
+    "static/css/main.7fd708be.chunk.css.map": "/front_integro/static/css/main.7fd708be.chunk.css.map",
+    "static/js/2.67d81b56.chunk.js.LICENSE.txt": "/front_integro/static/js/2.67d81b56.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/front_integro/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.72bc32b8.js",
+    "static/js/2.67d81b56.chunk.js",
+    "static/css/main.7fd708be.chunk.css",
+    "static/js/main.d1b53f75.chunk.js"
+  ]
+}
