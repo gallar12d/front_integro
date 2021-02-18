@@ -15,7 +15,7 @@ const WidgetArticles = (props) => {
             <img
               alt="avatar"
               className="w-20 rounded-full h-20 flex items-center justify-center border-2 border-gray-300"
-              src="https://lh3.googleusercontent.com/proxy/iR4Lq1fEKUTSecnz2NzPZ8RMV6Tsf3JCgzrcX7-FQAETag5C1vXrrI5gfALCwWtGOQIbqsYuSRAC5utxCFCEBPVCuB1jPvmDcWiWtMS1hUwb"
+              src="http://qnimate.com/wp-content/uploads/2014/03/images2.jpg"
             />
           </div>
           <div id="header-text" className="leading-5  sm">

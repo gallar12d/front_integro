@@ -52,7 +52,7 @@ const Article = (props) => {
           <div className="flex justify-center">
             <img
               className=""
-              src="https://lh3.googleusercontent.com/proxy/iR4Lq1fEKUTSecnz2NzPZ8RMV6Tsf3JCgzrcX7-FQAETag5C1vXrrI5gfALCwWtGOQIbqsYuSRAC5utxCFCEBPVCuB1jPvmDcWiWtMS1hUwb"
+              src="http://qnimate.com/wp-content/uploads/2014/03/images2.jpg"
             />
           </div>
           <div className="px-4 py-2 mt-2 bg-white">
