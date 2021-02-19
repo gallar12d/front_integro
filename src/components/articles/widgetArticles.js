@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 
 const WidgetArticles = (props) => {
+  const url_resources = global.config.RESOURCES_URL;
+
   useEffect(async () => {}, []);
   const history = useHistory();
   const [art, setArt] = useState();
@@ -9,13 +11,20 @@ const WidgetArticles = (props) => {
 
   const list = props.articles.map((article) => {
     return (
-      <div key={article.id} className="mb-2 bg-gray-200 flex justify-center items-center">
+      <div
+        key={article.id}
+        className="mb-2 bg-gray-200 flex justify-center items-center"
+      >
         <div className=" w-full bg-white border-2 border-gray-300 p-6 rounded-md tracking-wide shadow-lg">
           <div id="header" className="flex justify-center items-center mb-">
             <img
               alt="avatar"
               className="w-20 rounded-full h-20 flex items-center justify-center border-2 border-gray-300"
-              src="http://qnimate.com/wp-content/uploads/2014/03/images2.jpg"
+              src={
+                article.picture
+                  ? "" + url_resources + "" + article.picture
+                  : "https://dgpos.co/test/images2.jpg"
+              }
             />
           </div>
           <div id="header-text" className="leading-5  sm">

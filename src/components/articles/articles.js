@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useHistory } from "react-router-dom";
-import FormArticle from './formArticle';
-import FormUpdateArticle from './formUpdateArticles';
-import ListArticles from './ListArticles';
+import FormArticle from "./formArticle";
+import FormUpdateArticle from "./formUpdateArticles";
+import ListArticles from "./ListArticles";
 const Articles = () => {
   const url = global.config.API_URL;
 
@@ -13,7 +13,7 @@ const Articles = () => {
 
   const [typeForm, setTypeForm] = useState("create");
   const loadData = async () => {
-    const response = await fetch(url+"articles", {
+    const response = await fetch(url + "articles", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -21,11 +21,11 @@ const Articles = () => {
       },
     });
     const data = await response.json();
-    
+
     setArticles(data);
   };
   const loadDataCategories = async () => {
-    const response = await fetch(url+"categories", {
+    const response = await fetch(url + "categories", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -40,10 +40,15 @@ const Articles = () => {
     loadData();
     loadDataCategories();
     setTypeForm("create");
-
   }, []);
 
   const createArticle = async (article) => {
+    const formData = new FormData();
+    if (article.article_img) {
+      formData.append("picture", article.article_img[0]);
+      
+    }
+
     const requestOptions = {
       method: "POST",
       headers: {
@@ -53,16 +58,38 @@ const Articles = () => {
       },
       body: JSON.stringify(article),
     };
-    const response = await fetch(
-      url+"articles",
-      requestOptions
-    );
+
+    const response = await fetch(url + "articles", requestOptions);
     const data = await response.json();
     if (data.errors) {
       //manejo de los errores aquí
       return false;
     }
-    loadData();
+    if (article.article_img) {
+      formData.append("id_article", data.id);
+
+      let response = await savePicture(formData);
+
+      loadData();
+    }
+    else{
+      loadData();
+
+    }
+    
+  };
+  const savePicture = async (formData) => {
+    const requestOptions = {
+      method: "POST",
+      headers: {       
+        Accept: "application/json",
+        Authorization: "Bearer " + localStorage.getItem("token_user"),
+      },
+      body: formData
+    };
+
+    const response = await fetch(url + "picture", requestOptions);
+    return   await response.json();
   };
 
   const selectArticle = (article) => {
@@ -70,7 +97,7 @@ const Articles = () => {
     setTypeForm("edit");
   };
 
-  const UpdateArticle= async (article) => {
+  const UpdateArticle = async (article) => {
     let id = article.id;
     const requestOptions = {
       method: "PUT",
@@ -82,7 +109,7 @@ const Articles = () => {
       body: JSON.stringify(article),
     };
     const response = await fetch(
-      url+"articles/" + article.id,
+      url + "articles/" + article.id,
       requestOptions
     );
     const data = await response.json();
@@ -102,18 +129,15 @@ const Articles = () => {
         "Content-Type": "application/json",
         Accept: "application/json",
         Authorization: "Bearer " + localStorage.getItem("token_user"),
-      }
+      },
     };
-    const response = await fetch(
-        url+"articles/" + id,
-        requestOptions
-      );
-      const data = await response.json();
-      if (data.errors) {
-        //manejo de los errores aquí
-        return false;
-      }
-      loadData();
+    const response = await fetch(url + "articles/" + id, requestOptions);
+    const data = await response.json();
+    if (data.errors) {
+      //manejo de los errores aquí
+      return false;
+    }
+    loadData();
   };
 
   return (
@@ -122,11 +146,21 @@ const Articles = () => {
         {typeForm == "create" ? (
           <FormArticle categories={categories} createArticle={createArticle} />
         ) : (
-          <FormUpdateArticle categories={categories} UpdateArticle={UpdateArticle} article={article} />
+          <FormUpdateArticle
+            categories={categories}
+            UpdateArticle={UpdateArticle}
+            article={article}
+          />
         )}
       </div>
       <div>
-        {articles && <ListArticles deleteArticle = {deleteArticle} selectArticle={selectArticle} articles={articles} />}{" "}
+        {articles && (
+          <ListArticles
+            deleteArticle={deleteArticle}
+            selectArticle={selectArticle}
+            articles={articles}
+          />
+        )}{" "}
       </div>
     </div>
   );

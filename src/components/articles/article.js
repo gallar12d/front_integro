@@ -5,6 +5,8 @@ import WidgetArticles from "./widgetArticles";
 import ListArticles from "./ListArticles";
 const Article = (props) => {
     const url = global.config.API_URL;
+  const url_resources = global.config.RESOURCES_URL;
+
 
   let history = useHistory();
   const { id } = useParams();
@@ -50,10 +52,8 @@ const Article = (props) => {
             {art.category.name}
           </a>
           <div className="flex justify-center">
-            <img
-              className=""
-              src="http://qnimate.com/wp-content/uploads/2014/03/images2.jpg"
-            />
+          <img className="" src={(art.picture) ? "" + url_resources + "" + art.picture : 'https://dgpos.co/test/images2.jpg'} />
+
           </div>
           <div className="px-4 py-2 mt-2 bg-white">
             <h2 className="font-bold text-2xl text-gray-800">{art.title}</h2>

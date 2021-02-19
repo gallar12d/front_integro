@@ -34,7 +34,7 @@ const FormUpdateCategory = (props) => {
           <br />
           <div className="mb-4">
             <label
-              className="block text-gray-700 text-sm font-bold mb-2"
+              className="text-left block text-gray-700 text-sm font-bold mb-2"
               htmlFor="name"
             >
               Name

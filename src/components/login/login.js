@@ -43,6 +43,8 @@ const Login = (props) => {
           if (data.token) {
             localStorage.setItem("token_user", data.token);
             localStorage.setItem("user", data.user.name);
+            localStorage.setItem("user_id", data.user.id);
+
             setUser(data.user)
             props.getUser(data.user.name)
 
