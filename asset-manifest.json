@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/front_integro/static/css/main.7fd708be.chunk.css",
-    "main.js": "/front_integro/static/js/main.38e9a080.chunk.js",
-    "main.js.map": "/front_integro/static/js/main.38e9a080.chunk.js.map",
+    "main.js": "/front_integro/static/js/main.b045e686.chunk.js",
+    "main.js.map": "/front_integro/static/js/main.b045e686.chunk.js.map",
     "runtime-main.js": "/front_integro/static/js/runtime-main.72bc32b8.js",
     "runtime-main.js.map": "/front_integro/static/js/runtime-main.72bc32b8.js.map",
     "static/js/2.67d81b56.chunk.js": "/front_integro/static/js/2.67d81b56.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.72bc32b8.js",
     "static/js/2.67d81b56.chunk.js",
     "static/css/main.7fd708be.chunk.css",
-    "static/js/main.38e9a080.chunk.js"
+    "static/js/main.b045e686.chunk.js"
   ]
 }
